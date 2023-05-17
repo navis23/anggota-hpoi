@@ -718,7 +718,7 @@
     })
 
 
-    const cancelDataCategory = ( async () => {
+    const cancelDataMember = ( async () => {
         await fetchMember()
         kode_provider.value = ''
         nama_provider.value = ''
