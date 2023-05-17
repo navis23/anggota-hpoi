@@ -77,6 +77,7 @@ const goInput = ( async () => {
     instagram.value = ''
     facebook.value = ''
     youtube.value = ''
+    website.value = ''
     logo.value = ''
     hero_img.value = ''
     gallery_one.value = ''
