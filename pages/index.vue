@@ -211,6 +211,32 @@
         await fetchMember()
     })
 
+    const goInput = ( async () => {
+        loadingOverlay.value = true
+        kode_provider.value = ''
+        nama_provider.value = ''
+        no_reg.value = ''
+        nama_anggota.value = ''
+        profile_one.value = ''
+        profile_two.value = ''
+        services.value = []
+        alamat.value = ''
+        telepon.value = ''
+        email.value = ''
+        instagram.value = ''
+        facebook.value = ''
+        youtube.value = ''
+        logo.value = ''
+        hero_img.value = ''
+        gallery_one.value = ''
+        gallery_two.value = ''
+        gallery_three.value = ''
+        await navigateTo('input')
+        setTimeout( () => {
+            loadingOverlay.value = false
+        }, 300)
+    })
+
     // fetching data
     const fetchMember = async () => {
         await axios.post( `${urlHostApi}hpoi-api/api/member/daftar`, {}, {
