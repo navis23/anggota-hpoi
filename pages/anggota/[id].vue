@@ -188,7 +188,8 @@
     } = storeToRefs(storeMember)
 
     // default API url set
-    const urlHostApi = 'http://localhost:8181/'
+    // const urlHostApi = 'http://localhost:8181/'
+    const urlHostApi = 'https://hpoi-api.enterbiner.com/'
 
     // ref for setting page
     const loadingOverlay = ref(false)
