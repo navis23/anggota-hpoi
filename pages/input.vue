@@ -1,5 +1,8 @@
 <template>
     <div class="grid grid-cols-3">
+        <!-- loading overlay -->
+        <Loading v-if="loadingOverlay == true"/>
+
         <div class="col-start-1 col-span-2 ">
             <div class="mb-10">
 
@@ -392,9 +395,12 @@
                     name="file5"
                     id="file5"
                     class="flex justify-center items-center rounded-lg border cursor-pointer p-4 file:bg-sky-200 file:text-sky-600 file:mr-6 file:text-sm file:cursor-pointer file:rounded-lg file:px-6 file:py-3 file:bg-opacity-30 file:border-none file:font-semibold"
+                    accept="image/*"
                 >
                 
             </div>
+
+            <!-- execute button -->
             <div class="flex gap-x-4 justify-end p-4 border-t-2 pt-4 mt-3">
                 <TButton class="gray" @click="cancelDataMember()">
                     <Icon name="carbon:close-outline" size="24" />
@@ -414,6 +420,12 @@
                         Edit
                     </span>
                 </TButton> -->
+            </div>
+
+            <div v-if="loadingOverlay" class="p-4 border-t-2 pt-4 mt-3">
+                <p class="text-base py-1 px-2 font-semibold bg-red-200 bg-opacity-30 text-red-700">
+                    {{ errMsg }}
+                </p>
             </div>
         </div>
     </div>
@@ -817,7 +829,7 @@
         })
         .catch( err => {
             console.log({error : err.message, msg : `error insert process`})
-            errMsg.value = "live"
+            errMsg.value = err.message
             setTimeout( () => {
                 loadingOverlay.value = false
             }, 300)
